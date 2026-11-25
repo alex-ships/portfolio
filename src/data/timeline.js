@@ -35,4 +35,22 @@ export const timelineData = [
     description:
       'Deep study into cloud concepts, Azure architectural components, compute and networking services, storage options, security governance, and cost management. Built the AZ-900 Practice Coach to assist fellow learners.',
   },
+  {
+    id: 'tech-savvy-python-analytics',
+    type: 'Certification',
+    title: 'Python for Data Analytics',
+    institution: 'Tech Savvy Institute',
+    status: 'Certified',
+    description:
+      'Completed certification training in Python for data analytics, covering numerical computing, data cleaning, and analysis using NumPy and Pandas.',
+  },
+  {
+    id: 'plp-ai-safari',
+    type: 'Certification',
+    title: 'AI Safari & Problem Solving',
+    institution: 'Power Learn Project (PLP) Africa',
+    status: 'Certified',
+    description:
+      'Earned the AI Safari certificate covering artificial intelligence foundations and practical applications, along with an additional module on structured problem solving.',
+  },
 ];

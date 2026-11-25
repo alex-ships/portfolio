@@ -24,6 +24,8 @@ export const skillsData = [
       { name: 'PostgreSQL', highlight: true },
       { name: 'Prisma ORM', highlight: true },
       { name: 'Python', highlight: false },
+      { name: 'NumPy', highlight: false },
+      { name: 'Pandas', highlight: false },
     ],
   },
   {
