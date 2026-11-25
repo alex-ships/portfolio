@@ -4,7 +4,7 @@ export const ProjectCard = ({ project }) => {
   const { title, description, tags, liveUrl, githubUrl, badge, category } = project;
 
   return (
-    <article className="project-card">
+    <article className="project-card" data-category={category || 'General'}>
       <div className="card-top">
         <div className="card-header-row">
           <h3 className="card-title">{title}</h3>

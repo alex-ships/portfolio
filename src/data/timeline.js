@@ -18,8 +18,8 @@ export const timelineData = [
     type: 'Training',
     title: 'Software Development Program',
     institution: 'Power Learn Project (PLP) Africa',
-    period: '2024',
-    status: 'Completed',
+    period: '2026 – Present',
+    status: 'In Progress',
     location: 'Nairobi, Kenya (Hybrid)',
     description:
       'Intensive hands-on training covering software engineering best practices, web technologies, backend API development, collaborative Git workflows, and product design.',

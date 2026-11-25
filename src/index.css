@@ -68,6 +68,9 @@
 
   --color-card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --color-card-shadow-hover: 0 20px 40px -15px rgba(0, 173, 181, 0.25);
+  --color-project-card-bg: linear-gradient(155deg, #162c49 0%, #0f1e33 100%);
+  --color-project-card-bg-hover: linear-gradient(155deg, #1c375b 0%, #132742 100%);
+  --color-project-tag-bg: rgba(56, 189, 248, 0.09);
   --header-bg: rgba(11, 19, 32, 0.88);
 }
 
@@ -92,6 +95,9 @@
 
   --color-card-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.08);
   --color-card-shadow-hover: 0 18px 36px -10px rgba(0, 137, 144, 0.18);
+  --color-project-card-bg: linear-gradient(155deg, #ffffff 0%, #edf6fc 100%);
+  --color-project-card-bg-hover: linear-gradient(155deg, #ffffff 0%, #e1f1fa 100%);
+  --color-project-tag-bg: rgba(2, 132, 199, 0.08);
   --header-bg: rgba(248, 250, 252, 0.92);
 }
 
@@ -662,6 +668,10 @@ ul {
 }
 
 /* Projects Section */
+.projects-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 173, 181, 0.04) 50%, transparent 100%);
+}
+
 .projects-filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -710,7 +720,8 @@ ul {
 }
 
 .project-card {
-  background-color: var(--color-surface);
+  position: relative;
+  background: var(--color-project-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
@@ -718,10 +729,31 @@ ul {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: var(--color-card-shadow);
-  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-fast);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow), border-color var(--transition-fast), background var(--transition-normal);
+}
+
+.project-card[data-category="Web App"] {
+  background: radial-gradient(circle at 100% 0%, rgba(0, 173, 181, 0.14), transparent 55%), var(--color-project-card-bg);
+}
+
+.project-card[data-category="Full Stack"] {
+  background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.15), transparent 55%), var(--color-project-card-bg);
+}
+
+.project-card[data-category="PWA & Mobile"] {
+  background: radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.14), transparent 55%), var(--color-project-card-bg);
+}
+
+.project-card[data-category="Automation"] {
+  background: radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.15), transparent 55%), var(--color-project-card-bg);
+}
+
+.project-card[data-category="Frontend"] {
+  background: radial-gradient(circle at 100% 0%, rgba(14, 165, 233, 0.14), transparent 55%), var(--color-project-card-bg);
 }
 
 .project-card:hover {
+  background: var(--color-project-card-bg-hover);
   transform: translateY(-6px);
   box-shadow: var(--color-card-shadow-hover);
   border-color: var(--color-border-hover);
@@ -775,9 +807,9 @@ ul {
 .tag-item {
   font-size: var(--font-size-xs);
   font-family: var(--font-family-mono);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-project-tag-bg);
   border: 1px solid var(--color-border);
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   padding: 0.25rem 0.6rem;
   border-radius: var(--radius-sm);
 }
