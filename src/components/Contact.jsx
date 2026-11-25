@@ -3,6 +3,88 @@ import { profileData } from '../data/profile';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const SOCIAL_PLATFORMS = [
+  {
+    id: 'youtube',
+    name: 'YouTube',
+    href: profileData.contact.youtube,
+    ariaLabel: 'YouTube',
+    icon: (
+      <svg className="social-brand-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="#FF0000"
+          d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"
+        />
+        <path fill="#FFFFFF" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'instagram',
+    name: 'Instagram',
+    href: profileData.contact.instagram,
+    ariaLabel: 'Instagram',
+    icon: (
+      <svg className="social-brand-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <radialGradient id="ig-brand-gradient" cx="30%" cy="107%" r="150%">
+            <stop offset="0%" stopColor="#FDF497" />
+            <stop offset="5%" stopColor="#FDF497" />
+            <stop offset="45%" stopColor="#FD5949" />
+            <stop offset="60%" stopColor="#D6249F" />
+            <stop offset="90%" stopColor="#285AEB" />
+          </radialGradient>
+        </defs>
+        <rect x="1.5" y="1.5" width="21" height="21" rx="5.5" fill="url(#ig-brand-gradient)" />
+        <rect
+          x="5.25"
+          y="5.25"
+          width="13.5"
+          height="13.5"
+          rx="3.75"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="1.75"
+        />
+        <circle cx="12" cy="12" r="3.25" fill="none" stroke="#FFFFFF" strokeWidth="1.75" />
+        <circle cx="16.1" cy="7.9" r="1.05" fill="#FFFFFF" />
+      </svg>
+    ),
+  },
+  {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    href: profileData.contact.linkedin,
+    ariaLabel: 'Alex Ndolo on LinkedIn',
+    icon: (
+      <svg className="social-brand-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="#0A66C2" />
+        <path
+          fill="#FFFFFF"
+          d="M7.6 9.8h2.35v7.6H7.6V9.8zm1.18-3.76a1.36 1.36 0 1 1 0 2.72 1.36 1.36 0 0 1 0-2.72zM11.45 9.8h2.25v1.04h.03c.31-.6 1.08-1.22 2.23-1.22 2.38 0 2.82 1.57 2.82 3.61v4.17h-2.35v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.33V9.8z"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    href: profileData.contact.whatsapp,
+    ariaLabel: 'Chat on WhatsApp',
+    icon: (
+      <svg className="social-brand-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10.5" fill="#25D366" />
+        <path
+          fill="#FFFFFF"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12.02 5.5a6.48 6.48 0 0 0-5.57 9.8l-.8 2.93 3-.79a6.48 6.48 0 1 0 3.37-11.94zm0 11.86a5.36 5.36 0 0 1-2.74-.75l-.2-.12-1.78.47.48-1.74-.13-.2a5.37 5.37 0 1 1 4.37 2.34zm2.95-4.03c-.16-.08-.96-.47-1.11-.53-.15-.05-.26-.08-.36.08-.11.16-.42.53-.51.63-.09.11-.19.12-.35.04-.16-.08-.68-.25-1.3-.8-.48-.43-.8-.96-.9-1.12-.09-.16-.01-.25.07-.33.07-.07.16-.19.24-.28.08-.09.11-.16.16-.27.05-.11.03-.2-.01-.28-.04-.08-.36-.88-.5-1.2-.13-.31-.27-.27-.36-.28h-.31c-.11 0-.28.04-.43.2-.15.16-.56.55-.56 1.34 0 .79.58 1.56.66 1.67.08.11 1.13 1.73 2.75 2.43.38.17.68.27.92.34.39.12.74.11 1.02.07.31-.05.96-.39 1.09-.77.14-.38.14-.7.1-.77-.04-.07-.15-.11-.31-.19z"
+        />
+      </svg>
+    ),
+  },
+];
+
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -202,6 +284,25 @@ export const Contact = () => {
                   <span className="detail-value">{profileData.contact.linkedinHandle}</span>
                 </div>
               </a>
+            </div>
+
+            <div className="contact-socials-block">
+              <h4 className="contact-socials-title">Socials &amp; Direct Chat</h4>
+              <div className="contact-socials-grid">
+                {SOCIAL_PLATFORMS.map((platform) => (
+                  <a
+                    key={platform.id}
+                    href={platform.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={platform.ariaLabel}
+                    className={`contact-social-card contact-social-${platform.id}`}
+                  >
+                    <span className="social-logo-frame">{platform.icon}</span>
+                    <span className="social-brand-name">{platform.name}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 

@@ -1089,6 +1089,84 @@ ul {
   font-size: var(--font-size-sm);
 }
 
+/* Social Logos Grid */
+.contact-socials-block {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-socials-title {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-3);
+}
+
+.contact-socials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.contact-social-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.7rem var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-social-card:hover {
+  transform: translateY(-2px);
+}
+
+.contact-social-youtube:hover {
+  border-color: rgba(255, 0, 0, 0.55);
+  box-shadow: 0 6px 18px -8px rgba(255, 0, 0, 0.45);
+}
+
+.contact-social-instagram:hover {
+  border-color: rgba(214, 36, 159, 0.55);
+  box-shadow: 0 6px 18px -8px rgba(214, 36, 159, 0.45);
+}
+
+.contact-social-linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.65);
+  box-shadow: 0 6px 18px -8px rgba(10, 102, 194, 0.45);
+}
+
+.contact-social-whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.55);
+  box-shadow: 0 6px 18px -8px rgba(37, 211, 102, 0.45);
+}
+
+.social-logo-frame {
+  width: 2.15rem;
+  height: 2.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-brand-svg {
+  width: 1.85rem;
+  height: 1.85rem;
+  display: block;
+}
+
+.social-brand-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
 /* Contact Form */
 .contact-form {
   display: flex;
@@ -1308,7 +1386,8 @@ ul {
     transform: none;
   }
 
-  .contact-detail-item:hover {
+  .contact-detail-item:hover,
+  .contact-social-card:hover {
     transform: none;
   }
 }
